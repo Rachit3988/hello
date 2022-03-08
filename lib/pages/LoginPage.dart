@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:hello/utils/routes.dart';
 import 'package:matcher/matcher.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,7 +9,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         color: Colors.white,
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           children: [
             Image.asset("assets/images/login_img.png", fit: BoxFit.cover),
             SizedBox(
@@ -37,16 +39,18 @@ class LoginPage extends StatelessWidget {
                         decoration: InputDecoration(
                             hintText: "Enter password", labelText: "Password")),
                     SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          print("Hello Rachit");
-                        },
-                        child: Text("Log in"))
+                      onPressed: () {
+                        Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      },
+                      child: Text("Log in"),
+                      style: TextButton.styleFrom(minimumSize: Size(150, 40)),
+                    )
                   ],
                 ))
           ],
-        ));
+        )));
   }
 }
